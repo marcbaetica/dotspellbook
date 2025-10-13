@@ -1,0 +1,38 @@
+Shortcuts:
+
+# Start (default config):
+start glazewm.exe
+
+# Start with custom config (as param or env variable):
+start glazewm.exe start --config="C:\<PATH_TO_CONFIG>\config.yaml"
+setx GLAZEWM_CONFIG_PATH "C:\<PATH_TO_CONFIG>\config.yaml"
+
+# initiate shutdown of GlazeWM and Zebar
+ALT + SHIFT + E
+
+
+
+Steps:
+
+1 - Install GlazeVM (with Zebar)
+https://github.com/glzr-io/glazewm/releases
+
+2 - Config is located under
+C:\Users\<YOUR_USER>\.glzr\glazewm\config.yaml
+
+Modify:
+
+gaps:
+inner_gap: '0px'  # Gap between adjacent windows.
+outer_gap:        # Gap between windows and the screen edge.
+	top:  '40px'
+	rest: '0px'
+
+startup_commands: ['shell-exec zebar', 'shell-exec firefox']  # Commands to run when starting the apps.
+
+shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F', 'shell-exec taskkill /IM firefox.exe /F']  # Commands to run when stopping the apps.
+
+window_rules:  # Rules set for windows to be ran when first initiated.
+  - commands: ['move --workspace 2']  # The associated command.
+    match:
+      - window_process: { equals: 'firefox'}  # Matching the window(s). Could be process, title, class. contents could be equals, regex, not_regex.
