@@ -1,9 +1,0 @@
-GlazeWM:
-C:\Users\USER
-
-Wezterm:
-
-
-nvim:
-C:\Users\USER\AppData\Local\nvim -> The default config location.
-C:\Users\USER\AppData\Local\nvim-data -> ...
