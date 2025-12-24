@@ -1,0 +1,102 @@
+WHAT YOU CAN BUILD WITH IT:
+
+1. Interactive Visualizations
+Charts, graphs, or dashboards that respond in real-time.
+Zebar helps manage and structure the data so Glaze can render it smoothly.
+
+2. 3D Graphics or Simulations
+Models, scenes, or animations that need efficient data pipelines.
+Zebar can preprocess geometry, textures, or simulation data for Glaze to display.
+
+3. Shader-Based Effects
+Real-time visual effects like particle systems, lighting, or procedural textures.
+Zebar organizes the input parameters and feeds them efficiently to Glaze’s rendering engine.
+
+4. Data-Driven Art or Tools
+Generative art or creative coding projects where visuals respond to structured datasets.
+Zebar handles the data logistics so Glaze can focus on visuals.
+
+
+Even though Zebar is most commonly seen as part of tiling window manager setups like GlazeWM, under the hood it’s basically a flexible desktop bar and widget framework. That means you can use it for more than just workspace or window management.
+
+Here’s what you can do:
+
+1. Desktop Widgets
+Clock, calendar, weather, system stats, battery, network info.
+Music or media controls.
+Quick-launch buttons for apps or scripts.
+
+2. App Interfaces
+Zebar can act like a mini UI layer on your desktop.
+You can make small tools or apps with buttons, sliders, text fields, etc., that live in the bar.
+Think of it like building micro-apps inside a persistent bar.
+
+3. Interactive Dashboards
+Track live data feeds (stock prices, CPU/GPU usage, chat notifications).
+Use Zebar widgets to display data dynamically using scripts or small programs.
+
+4. Custom Integrations
+Since it’s scriptable, you can link it to your own programs or APIs.
+For example, a Zebar widget could trigger a Python script, show results, or control another app.
+
+
+EXAMPLES:
+
+https://github.com/adriankarlen/neobrutal-zebar
+NB: See attached [neobrutal-zebar examples] folder in this repo for examples of 3d buttons and hover animations.
+
+
+CONFIGURATION:
+
+
+📁 Where Zebar Stores Config Files
+
+Default config directory (all platforms):
+Windows: %userprofile%\.glzr\zebar\
+macOS & Linux: ~/.glzr/zebar/
+This is where Zebar creates its configuration files when you first launch it. 
+DeepWiki
+
+✔ This matches what I said earlier about common config paths — but specifically for Zebar, the directory **is actually ~/.glzr/zebar/, not just “Zebar” or “AppData\Roaming”*. 
+DeepWiki
+
+📄 What’s Inside the Config Directory
+Within that folder you’ll find:
+Global settings file — settings.json — Zebar’s main config file controlling active widgets and startup behavior. 
+DeepWiki
+Widget packs — directories containing widget config files (zpack.json etc.). 
+GitHub
+
+Once this gets downloaded, actual config code will be under:
+
+Zebar also looks here for widget packs and their configs so it can display widgets on the desktop. 
+GitHub
+Windows: Often in C:\Users\<YourUsername>\AppData\Roaming\Zebar or inside the program’s installation folder.
+macOS: Usually in ~/Library/Application Support/Zebar/ or ~/Documents/Zebar/.
+Linux: Commonly in ~/.config/zebar/ or /etc/zebar/.
+
+
+A NOTE ON THE COLOR SCHEME:
+
+C:\Users\<YourUsername>\AppData\Roaming\zebar\downloads\glzr-io.starter@0.0.0\styles.css
+
+:root {
+  --text-size: 12px;
+  --icon-size: 12px;
+
+  --text-color-light: rgba(0 0 0 / 95%);
+  --text-color-dark: rgba(255 255 255 / 95%);
+
+  --icon-color-light: LightSteelBlue;
+  --icon-color-dark: rgba(115 130 175 / 95%);
+
+  --background-color-light: rgba(238 238 238 / 90%);
+  --background-color-dark: linear-gradient(
+    rgb(0 0 0 / 90%),
+    rgb(5 2 20 / 85%)
+  );
+}
+
+There is no parameter to pass at runtime to trigger the theme.
+Instead, it will dymanically adjust the dark vs light theme based on the configured windows theme. No restart needed.
+
